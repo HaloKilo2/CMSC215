@@ -1,6 +1,6 @@
 # CMSC 215 Intermediate Programming
 ## Programming Project 1 - Documentation
-### Author: Lexie Thach
+### Author: Lexie
 ### Date: January 27, 2026
 
 ---
@@ -63,46 +63,38 @@ The final stage implemented the main program logic:
 ---
 
 ## 2. UML Class Diagram
+```mermaid
+classDiagram
+    class Height {
+        -int feet
+        -int inches
+        +Height(int feet, int inches)
+        +toInches() int
+        +toString() String
+    }
+    
+    class Player {
+        -String name
+        -Height height
+        -int age
+        +Player(String name, Height height, int age)
+        +getName() String
+        +getHeight() Height
+        +getAge() int
+        +toString() String
+    }
+    
+    class Project1 {
+        +main(String[] args) void
+    }
+    
+    Player o-- Height : has-a (aggregation)
+    Project1 ..> Player : uses
+```
 
-### Height Class
-| **Height** |
-|---|
-| **Attributes** |
-| - feet: int |
-| - inches: int |
-| **Methods** |
-| + Height(int feet, int inches) |
-| + toInches(): int |
-| + toString(): String |
-
-### Player Class
-| **Player** |
-|---|
-| **Attributes** |
-| - name: String |
-| - height: Height |
-| - age: int |
-| **Methods** |
-| + Player(String name, Height height, int age) |
-| + getName(): String |
-| + getHeight(): Height |
-| + getAge(): int |
-| + toString(): String |
-
-### Project1 Class
-| **Project1** |
-|---|
-| **Attributes** |
-| (no instance variables) |
-| **Methods** |
-| + main(String[] args): void |
-
-### Class Relationships
-
-| **From Class** | **To Class** | **Relationship Type** | **Description** |
-|---|---|---|---|
-| Player | Height | Aggregation (has-a) | Player has a Height object. If Player is destroyed, Height can exist independently. Represented by a hollow diamond. |
-| Project1 | Player | Dependency (uses) | Project1 uses Player objects but doesn't store them as instance variables (they're local to main method). Represented by a dashed arrow. |
+**Class Relationships:**
+- **Player → Height**: Aggregation (hollow diamond). Player has-a Height. If Player is destroyed, Height can exist independently.
+- **Project1 → Player**: Dependency (dashed arrow). Project1 uses Player objects but doesn't store them as instance variables (they're local to main method).
 
 ---
 
@@ -261,3 +253,5 @@ See Player.java in the zip file.
 See Project1.java in the zip file.
 
 ---
+
+**End of Documentation**
